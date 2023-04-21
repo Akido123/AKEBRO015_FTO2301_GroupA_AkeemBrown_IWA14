@@ -2,12 +2,12 @@
 
 const add = (a, b) => { return a + b }
 
-const multiply = (a, b) => { return a - b }
+const multiply = (a, b) => { return a * b }
 
-function internal(a,b) {
-	const added = this.add(this.a, this.b)
-	this.multiply(this.a, this.b)
-	return this
+function internal() {
+	const added = this.add(this.internal.a, this.internal.b)
+	const multiplied = this.multiply(added, this.internal.c)
+	return multiplied
 }
 
 // Not allowed to change below this
@@ -34,5 +34,5 @@ const example2 = {
   calculate: internal
 }
 
-example1.calculate()
-example2.calculate()
+console.log(example1.calculate())
+console.log(example2.calculate())
